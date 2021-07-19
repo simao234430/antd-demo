@@ -4,7 +4,8 @@ import App from "./App.vue";
 import { initRouter } from "./router";
 import store from "./store";
 import Antd from "ant-design-vue";
-import "ant-design-vue/dist/antd.css";
+import "./theme/index.less";
+// import "ant-design-vue/dist/antd.css";
 
 const router = initRouter(store.state.setting.asyncRoutes);
 

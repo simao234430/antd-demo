@@ -2,7 +2,7 @@
   <exception-page
     home-route="/dashboard/workplace"
     :style="`min-height: ${minHeight}`"
-    type="404"
+    type="500"
   />
 </template>
 
@@ -10,7 +10,7 @@
 import ExceptionPage from "@/components/exception/ExceptionPage";
 import { mapState } from "vuex";
 export default {
-  name: "Exp404",
+  name: "Exp500",
   components: { ExceptionPage },
   computed: {
     ...mapState("setting", ["pageMinHeight"]),

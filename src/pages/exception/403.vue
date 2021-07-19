@@ -1,27 +1,24 @@
 <template>
-  <div class="">403</div>
+  <exception-page
+    home-route="/dashboard/workplace"
+    :style="`min-height: ${minHeight}`"
+    type="403"
+  />
 </template>
 
 <script>
+import ExceptionPage from "@/components/exception/ExceptionPage";
+import { mapState } from "vuex";
 export default {
-  components: {},
-  data() {
-    return {};
+  name: "Exp403",
+  components: { ExceptionPage },
+  computed: {
+    ...mapState("setting", ["pageMinHeight"]),
+    minHeight() {
+      return this.pageMinHeight ? this.pageMinHeight + "px" : "100vh";
+    },
   },
-  computed: {},
-  watch: {},
-  methods: {},
-  created() {},
-  mounted() {},
-  beforeCreate() {},
-  beforeMount() {},
-  beforeUpdate() {},
-  updated() {},
-  beforeDestroy() {},
-  destroyed() {},
-  activated() {},
 };
 </script>
-<style lang="less" scoped>
-//@import url(); 引入公共css类
-</style>
+
+<style scoped lang="less"></style>

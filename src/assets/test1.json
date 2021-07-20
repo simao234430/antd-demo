@@ -1,0 +1,31 @@
+[
+  {
+    "path": "dashboard",
+    "name": "Dashboard",
+    "meta": { "icon": "dashboard" },
+    "component": { "__file": "src/layouts/BlankView.vue" },
+    "children": [
+      {
+        "path": "workplace",
+        "name": "工作台",
+        "meta": { "page": { "closable": false } },
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        }
+      },
+      {
+        "path": "analysis",
+        "name": "分析页",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        }
+      }
+    ]
+  }
+]

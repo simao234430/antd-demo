@@ -1,3 +1,39 @@
+import { mergeI18nFromRoutes } from "@/utils/i18n";
+//应用配置
+let appOptions = {
+  router: undefined,
+  i18n: undefined,
+  store: undefined,
+};
+
+/**
+ * 设置应用配置
+ * @param options
+ */
+function setAppOptions(options) {
+  const { router, store, i18n } = options;
+  appOptions.router = router;
+  appOptions.store = store;
+  appOptions.i18n = i18n;
+}
+
+/**
+ * 加载路由
+ * @param routesConfig {RouteConfig[]} 路由配置
+ */
+function loadRoutes() {
+  // 应用配置
+  const { router, store, i18n } = appOptions;
+  // 提取路由国际化数据
+  mergeI18nFromRoutes(i18n, router.options.routes);
+  // 初始化Admin后台菜单数据
+  const rootRoute = router.options.routes.find((item) => item.path === "/");
+  const menuRoutes = rootRoute && rootRoute.children;
+  if (menuRoutes) {
+    store.commit("setting/setMenuData", menuRoutes);
+  }
+}
+
 /**
  * 格式化路由
  * @param routes 路由配置
@@ -11,4 +47,18 @@ function formatRoutes(routes) {
   });
   // formatAuthority(routes);
 }
-export { formatRoutes };
+
+/**
+ * 从路由 path 解析 i18n key
+ * @param path
+ * @returns {*}
+ */
+function getI18nKey(path) {
+  const keys = path
+    .split("/")
+    .filter((item) => !item.startsWith(":") && item != "");
+  keys.push("name");
+  return keys.join(".");
+}
+
+export { formatRoutes, setAppOptions, loadRoutes, getI18nKey };

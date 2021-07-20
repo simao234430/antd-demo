@@ -1,0 +1,613 @@
+[
+  {
+    "path": "dashboard",
+    "name": "Dashboard",
+    "meta": {
+      "icon": "dashboard",
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": {
+        "type": "component-definition",
+        "display": "BlankView <span>(src/layouts/BlankView.vue)</span>",
+        "tooltip": "Component definition",
+        "file": "src/layouts/BlankView.vue"
+      }
+    },
+    "children": [
+      {
+        "path": "workplace",
+        "name": "工作台",
+        "meta": {
+          "page": { "closable": false },
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "fullPath": "/dashboard/workplace"
+      },
+      {
+        "path": "analysis",
+        "name": "分析页",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/dashboard/analysis"
+      }
+    ],
+    "fullPath": "/dashboard"
+  },
+  {
+    "path": "form",
+    "name": "表单页",
+    "meta": {
+      "icon": "form",
+      "page": { "cacheAble": false },
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": {
+        "type": "component-definition",
+        "display": "PageView <span>(src/layouts/PageView.vue)</span>",
+        "tooltip": "Component definition",
+        "file": "src/layouts/PageView.vue"
+      }
+    },
+    "children": [
+      {
+        "path": "basic",
+        "name": "基础表单",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/form/basic"
+      },
+      {
+        "path": "step",
+        "name": "分步表单",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/form/step"
+      },
+      {
+        "path": "advance",
+        "name": "高级表单",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/form/advance"
+      }
+    ],
+    "fullPath": "/form"
+  },
+  {
+    "path": "list",
+    "name": "列表页",
+    "meta": {
+      "icon": "table",
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": {
+        "type": "component-definition",
+        "display": "PageView <span>(src/layouts/PageView.vue)</span>",
+        "tooltip": "Component definition",
+        "file": "src/layouts/PageView.vue"
+      }
+    },
+    "children": [
+      {
+        "path": "query",
+        "name": "查询表格",
+        "meta": {
+          "authority": { "permission": "queryForm" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "fullPath": "/list/query"
+      },
+      {
+        "path": "query1",
+        "name": "test",
+        "meta": {
+          "authority": { "permission": "queryForm" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "fullPath": "/list/query1"
+      },
+      {
+        "path": "query2",
+        "name": "案件编辑",
+        "meta": {
+          "authority": { "permission": "queryForm" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "fullPath": "/list/query2"
+      },
+      {
+        "path": "query3",
+        "name": "案件查询",
+        "meta": {
+          "authority": { "permission": "queryForm" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "fullPath": "/list/query3"
+      },
+      {
+        "path": "query/detail/:id",
+        "name": "查询详情",
+        "meta": {
+          "highlight": "/list/query",
+          "invisible": true,
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "fullPath": "/list/query/detail/:id"
+      },
+      {
+        "path": "primary",
+        "name": "标准列表",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/list/primary"
+      },
+      {
+        "path": "card",
+        "name": "卡片列表",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/list/card"
+      },
+      {
+        "path": "search",
+        "name": "搜索列表",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "children": [
+          {
+            "path": "article",
+            "name": "文章",
+            "component": {
+              "_custom": {
+                "type": "function",
+                "display": "<span>ƒ</span> component()"
+              }
+            },
+            "meta": {
+              "authority": { "permission": "*" },
+              "pAuthorities": [
+                { "permission": "*" },
+                { "permission": "*" },
+                { "permission": "*" }
+              ]
+            },
+            "fullPath": "/list/search/article"
+          },
+          {
+            "path": "application",
+            "name": "应用",
+            "component": {
+              "_custom": {
+                "type": "function",
+                "display": "<span>ƒ</span> component()"
+              }
+            },
+            "meta": {
+              "authority": { "permission": "*" },
+              "pAuthorities": [
+                { "permission": "*" },
+                { "permission": "*" },
+                { "permission": "*" }
+              ]
+            },
+            "fullPath": "/list/search/application"
+          },
+          {
+            "path": "project",
+            "name": "项目",
+            "component": {
+              "_custom": {
+                "type": "function",
+                "display": "<span>ƒ</span> component()"
+              }
+            },
+            "meta": {
+              "authority": { "permission": "*" },
+              "pAuthorities": [
+                { "permission": "*" },
+                { "permission": "*" },
+                { "permission": "*" }
+              ]
+            },
+            "fullPath": "/list/search/project"
+          }
+        ],
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/list/search"
+      }
+    ],
+    "fullPath": "/list"
+  },
+  {
+    "path": "details",
+    "name": "详情页",
+    "meta": {
+      "icon": "profile",
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": {
+        "type": "component-definition",
+        "display": "BlankView <span>(src/layouts/BlankView.vue)</span>",
+        "tooltip": "Component definition",
+        "file": "src/layouts/BlankView.vue"
+      }
+    },
+    "children": [
+      {
+        "path": "basic",
+        "name": "基础详情页",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/details/basic"
+      },
+      {
+        "path": "advance",
+        "name": "高级详情页",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/details/advance"
+      }
+    ],
+    "fullPath": "/details"
+  },
+  {
+    "path": "result",
+    "name": "结果页",
+    "meta": {
+      "icon": "check-circle-o",
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": {
+        "type": "component-definition",
+        "display": "PageView <span>(src/layouts/PageView.vue)</span>",
+        "tooltip": "Component definition",
+        "file": "src/layouts/PageView.vue"
+      }
+    },
+    "children": [
+      {
+        "path": "success",
+        "name": "成功",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/result/success"
+      },
+      {
+        "path": "error",
+        "name": "失败",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/result/error"
+      }
+    ],
+    "fullPath": "/result"
+  },
+  {
+    "path": "exception",
+    "name": "异常页",
+    "meta": {
+      "icon": "warning",
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": {
+        "type": "component-definition",
+        "display": "BlankView <span>(src/layouts/BlankView.vue)</span>",
+        "tooltip": "Component definition",
+        "file": "src/layouts/BlankView.vue"
+      }
+    },
+    "children": [
+      {
+        "path": "404",
+        "name": "Exp404",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/exception/404"
+      },
+      {
+        "path": "403",
+        "name": "Exp403",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/exception/403"
+      },
+      {
+        "path": "500",
+        "name": "Exp500",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/exception/500"
+      }
+    ],
+    "fullPath": "/exception"
+  },
+  {
+    "path": "components",
+    "name": "内置组件",
+    "meta": {
+      "icon": "appstore-o",
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": {
+        "type": "component-definition",
+        "display": "PageView <span>(src/layouts/PageView.vue)</span>",
+        "tooltip": "Component definition",
+        "file": "src/layouts/PageView.vue"
+      }
+    },
+    "children": [
+      {
+        "path": "taskCard",
+        "name": "任务卡片",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/components/taskCard"
+      },
+      {
+        "path": "palette",
+        "name": "颜色复选框",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/components/palette"
+      },
+      {
+        "path": "table",
+        "name": "高级表格",
+        "component": {
+          "_custom": {
+            "type": "function",
+            "display": "<span>ƒ</span> component()"
+          }
+        },
+        "meta": {
+          "authority": { "permission": "*" },
+          "pAuthorities": [{ "permission": "*" }, { "permission": "*" }]
+        },
+        "fullPath": "/components/table"
+      }
+    ],
+    "fullPath": "/components"
+  },
+  {
+    "name": "验权表单",
+    "path": "auth/form",
+    "meta": {
+      "icon": "file-excel",
+      "authority": { "permission": "form" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": { "type": "function", "display": "<span>ƒ</span> component()" }
+    },
+    "fullPath": "/auth/form"
+  },
+  {
+    "name": "带参菜单",
+    "path": "router/query",
+    "meta": {
+      "icon": "project",
+      "query": { "name": "菜单默认参数" },
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": { "type": "function", "display": "<span>ƒ</span> component()" }
+    },
+    "fullPath": "/router/query"
+  },
+  {
+    "name": "动态路由菜单",
+    "path": "router/dynamic/:id",
+    "meta": {
+      "icon": "project",
+      "params": { "id": 123 },
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "component": {
+      "_custom": { "type": "function", "display": "<span>ƒ</span> component()" }
+    },
+    "fullPath": "/router/dynamic/:id"
+  },
+  {
+    "name": "Ant Design Vue",
+    "path": "antdv",
+    "meta": {
+      "icon": "ant-design",
+      "link": "https://www.antdv.com/docs/vue/introduce-cn/",
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "fullPath": "/antdv"
+  },
+  {
+    "name": "使用文档",
+    "path": "document",
+    "meta": {
+      "icon": "file-word",
+      "link": "https://iczer.gitee.io/vue-antd-admin-docs/",
+      "authority": { "permission": "*" },
+      "pAuthorities": [{ "permission": "*" }]
+    },
+    "fullPath": "/document"
+  }
+]

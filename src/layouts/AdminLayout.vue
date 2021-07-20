@@ -1,23 +1,43 @@
 <template>
   <a-layout :class="['admin-layout', 'beauty-scroll']">
-    <side-menu :theme="theme.mode" :menuData="firstMenu"></side-menu>
-    <a-layout-header></a-layout-header>
-    <a-layout-content class="admin-layout-content">
-      <div style="position: relative">
+    <side-menu
+      :collapsed="collapsed"
+      :collapsible="true"
+      :theme="theme.mode"
+      :menuData="firstMenu"
+    ></side-menu>
+    <a-layout class="admin-layout-main beauty-scroll">
+      <!-- <a-layout-header></a-layout-header> -->
+      <admin-header
+        :collapsed="collapsed"
+        v-on:toggleCollapse="toggleCollapse"
+      ></admin-header>
+
+      <a-layout-content
+        :style="{
+          margin: '24px 16px',
+          padding: '24px',
+          background: '#fff',
+          minHeight: '280px',
+        }"
+      >
         <slot></slot>
-      </div>
-    </a-layout-content>
+      </a-layout-content>
+    </a-layout>
   </a-layout>
 </template>
 
 <script>
+import AdminHeader from "./header/AdminHeader";
 import SideMenu from "../components/menu/SideMenu.vue";
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "AdminLayout",
-  components: { SideMenu },
+  components: { SideMenu, AdminHeader },
   data() {
-    return {};
+    return {
+      collapsed: false,
+    };
   },
   computed: {
     ...mapState("setting", ["isMobile", "theme", "layout"]),
@@ -29,7 +49,12 @@ export default {
     // },
   },
   watch: {},
-  methods: {},
+  methods: {
+    toggleCollapse() {
+      console.log(" admin toggleCollapse");
+      this.collapsed = !this.collapsed;
+    },
+  },
   created() {},
   mounted() {},
   beforeCreate() {},

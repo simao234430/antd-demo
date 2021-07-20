@@ -44,5 +44,8 @@ export default {
     setMenuData(state, menuData) {
       state.menuData = menuData;
     },
+    setLang(state, lang) {
+      state.lang = lang;
+    },
   },
 };

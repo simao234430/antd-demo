@@ -1,0 +1,40 @@
+.admin-header{
+  padding: 0;
+  z-index: 2;
+  box-shadow: @shadow-down;
+  position: relative;
+  background: @base-bg-color;
+  .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .admin-header-right{
+    float: right;
+    display: flex;
+    color: inherit;
+    .header-item{
+      color: inherit;
+      padding: 0 12px;
+      cursor: pointer;
+      align-self: center;
+      a{
+        color: inherit;
+        i{
+          font-size: 16px;
+        }
+      }
+    }
+    each(@theme-list, {
+      &.@{value} .header-item{
+        &:hover{
+          @class: ~'hover-bg-color-@{value}';
+          background-color: @@class;
+        }
+      }
+    })
+  }
+  
+}

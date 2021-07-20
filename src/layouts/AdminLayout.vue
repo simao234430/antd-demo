@@ -15,7 +15,7 @@
 
       <a-layout-content
         :style="{
-          margin: '24px 16px',
+          margin: '24px 16px ',
           padding: '24px',
           background: '#fff',
           minHeight: '280px',
@@ -23,24 +23,34 @@
       >
         <slot></slot>
       </a-layout-content>
+      <a-layout-footer style="text-align: center">
+        <page-footer :link-list="footerLinks" :copyright="copyright" />
+      </a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
 
 <script>
 import AdminHeader from "./header/AdminHeader";
+import PageFooter from "./footer/PageFooter";
 import SideMenu from "../components/menu/SideMenu.vue";
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "AdminLayout",
-  components: { SideMenu, AdminHeader },
+  components: { SideMenu, AdminHeader, PageFooter },
   data() {
     return {
       collapsed: false,
     };
   },
   computed: {
-    ...mapState("setting", ["isMobile", "theme", "layout"]),
+    ...mapState("setting", [
+      "isMobile",
+      "theme",
+      "layout",
+      "footerLinks",
+      "copyright",
+    ]),
     ...mapGetters("setting", ["firstMenu", "subMenu", "menuData"]),
     // sideMenuData() {
     //   const { layout, menuData, subMenu } = this;

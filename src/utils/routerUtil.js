@@ -61,4 +61,24 @@ function getI18nKey(path) {
   return keys.join(".");
 }
 
-export { formatRoutes, setAppOptions, loadRoutes, getI18nKey };
+/**
+ * 加载导航守卫
+ * @param guards
+ * @param options
+ */
+function loadGuards(guards, options) {
+  const { beforeEach, afterEach } = guards;
+  const { router } = options;
+  beforeEach.forEach((guard) => {
+    if (guard && typeof guard === "function") {
+      router.beforeEach((to, from, next) => guard(to, from, next, options));
+    }
+  });
+  afterEach.forEach((guard) => {
+    if (guard && typeof guard === "function") {
+      router.afterEach((to, from) => guard(to, from, options));
+    }
+  });
+}
+
+export { formatRoutes, setAppOptions, loadRoutes, getI18nKey, loadGuards };

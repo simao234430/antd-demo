@@ -1,5 +1,6 @@
 let path = require("path");
 module.exports = {
+  publicPath: "./",
   lintOnSave: false,
   devServer: {
     // proxy: {
@@ -11,6 +12,9 @@ module.exports = {
     //     }
     //   }
     // }
+  },
+  configureWebpack: (config) => {
+    process;
   },
   pluginOptions: {
     "style-resources-loader": {

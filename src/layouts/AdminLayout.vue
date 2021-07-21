@@ -19,6 +19,7 @@
           padding: '24px',
           background: '#fff',
           minHeight: '280px',
+          background: 'rgb(255, 255, 255, 0.2)',
         }"
       >
         <slot></slot>

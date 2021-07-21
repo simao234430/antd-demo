@@ -1,5 +1,6 @@
 import TabsView from "@/layouts/tabs/TabsView";
 import BlankView from "@/layouts/BlankView";
+import PageView from "@/layouts/PageView";
 // 路由配置
 const options = {
   routes: [
@@ -17,6 +18,16 @@ const options = {
       path: "/403",
       name: "403",
       component: () => import("@/pages/exception/403"),
+    },
+    {
+      path: "/404",
+      name: "404",
+      component: () => import("@/pages/exception/404"),
+    },
+    {
+      path: "/500",
+      name: "500",
+      component: () => import("@/pages/exception/500"),
     },
     {
       path: "/",
@@ -46,6 +57,26 @@ const options = {
               path: "analysis",
               name: "分析页",
               component: () => import("@/pages/dashboard/analysis"),
+            },
+          ],
+        },
+        {
+          path: "result",
+          name: "结果页",
+          meta: {
+            icon: "check-circle-o",
+          },
+          component: BlankView,
+          children: [
+            {
+              path: "success",
+              name: "成功",
+              component: () => import("@/pages/result/Success"),
+            },
+            {
+              path: "error",
+              name: "失败",
+              component: () => import("@/pages/result/Error"),
             },
           ],
         },

@@ -3,17 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service --mode development serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@antv/data-set": "^0.11.8",
     "ant-design-vue": "^1.7.6",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "date-fns": "^2.22.1",
     "js-cookie": "^2.2.1",
     "less": "^3.13.1",
     "mockjs": "^1.1.0",
+    "nprogress": "^0.2.0",
+    "viser-vue": "^2.4.8",
     "vue": "^2.6.14",
     "vue-i18n": "^8.18.2",
     "vue-router": "^3.3.4",

@@ -1,5 +1,7 @@
 import config from "@/config";
 import { formatFullPath } from "@/utils/i18n";
+import { getLocalSetting } from "@/utils/themeUtil";
+const localSetting = getLocalSetting();
 
 export default {
   namespaced: true,
@@ -7,6 +9,7 @@ export default {
     isMobile: false,
     menuData: [],
     ...config,
+    ...localSetting,
   },
   getters: {
     menuData(state) {
@@ -46,6 +49,9 @@ export default {
     },
     setLang(state, lang) {
       state.lang = lang;
+    },
+    correctPageMinHeight(state, minHeight) {
+      state.pageMinHeight += minHeight;
     },
   },
 };

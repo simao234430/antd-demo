@@ -4,6 +4,7 @@ import App from "./App.vue";
 import { initRouter } from "./router";
 import store from "./store";
 import Antd from "ant-design-vue";
+import "@/mock";
 import "./theme/index.less";
 // import "ant-design-vue/dist/antd.css";
 import bootstrap from "@/bootstrap";

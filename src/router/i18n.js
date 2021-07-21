@@ -5,7 +5,7 @@ module.exports = {
       dashboard: {
         name: "Dashboard1",
         workplace: { name: "工作台" },
-        analysis: { name: "分析頁" },
+        analysis: { name: "分析页" },
       },
     },
     US: {

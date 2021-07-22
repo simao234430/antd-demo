@@ -1,6 +1,7 @@
 import config from "@/config";
 import { formatFullPath } from "@/utils/i18n";
 import { getLocalSetting } from "@/utils/themeUtil";
+import { ADMIN } from "@/config/default";
 const localSetting = getLocalSetting();
 
 export default {
@@ -8,6 +9,8 @@ export default {
   state: {
     isMobile: false,
     menuData: [],
+    animates: ADMIN.animates,
+    palettes: ADMIN.palettes,
     ...config,
     ...localSetting,
   },

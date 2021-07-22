@@ -6,6 +6,12 @@
       :theme="theme.mode"
       :menuData="firstMenu"
     ></side-menu>
+    <drawer v-if="!hideSetting" v-model="showSetting" placement="right">
+      <div class="setting" slot="handler">
+        <a-icon :type="showSetting ? 'close' : 'setting'" />
+      </div>
+      <setting />
+    </drawer>
     <a-layout class="admin-layout-main beauty-scroll">
       <!-- <a-layout-header></a-layout-header> -->
       <admin-header
@@ -32,16 +38,19 @@
 </template>
 
 <script>
+import Drawer from "../components/tool/Drawer";
 import AdminHeader from "./header/AdminHeader";
 import PageFooter from "./footer/PageFooter";
 import SideMenu from "../components/menu/SideMenu.vue";
+import Setting from "../components/setting/Setting";
 import { mapState, mapGetters } from "vuex";
 export default {
   name: "AdminLayout",
-  components: { SideMenu, AdminHeader, PageFooter },
+  components: { SideMenu, AdminHeader, PageFooter, Setting, Drawer },
   data() {
     return {
       collapsed: false,
+      showSetting: false,
     };
   },
   computed: {
@@ -51,6 +60,11 @@ export default {
       "layout",
       "footerLinks",
       "copyright",
+      "fixedHeader",
+      "fixedSideBar",
+      "fixedTabs",
+      "hideSetting",
+      "multiPage",
     ]),
     ...mapGetters("setting", ["firstMenu", "subMenu", "menuData"]),
     // sideMenuData() {

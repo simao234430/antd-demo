@@ -47,11 +47,23 @@ export default {
     },
   },
   mutations: {
+    setTheme(state, theme) {
+      console.log(theme);
+      state.theme = theme;
+    },
     setMenuData(state, menuData) {
       state.menuData = menuData;
     },
+    setLayout(state, layout) {
+      state.layout = layout;
+    },
     setLang(state, lang) {
       state.lang = lang;
+    },
+    setWeekMode(state, weekMode) {
+      console.log(state.weekMode);
+      console.log(weekMode);
+      state.weekMode = weekMode;
     },
     correctPageMinHeight(state, minHeight) {
       state.pageMinHeight += minHeight;

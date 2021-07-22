@@ -18,7 +18,7 @@ Vue.use(Antd);
 Vue.use(Viser);
 Vue.use(Plugins);
 bootstrap({ router, store, i18n, message: Vue.prototype.$message });
-console.log(process.env.VUE_APP_USER_KEY);
+// console.log(process.env.VUE_APP_USER_KEY);
 new Vue({
   router,
   store,

@@ -1,4 +1,7 @@
 let path = require("path");
+const ThemeColorReplacer = require("webpack-theme-color-replacer");
+const { getThemeColors, modifyVars } = require("./src/utils/themeUtil");
+const { resolveCss } = require("./src/utils/theme-color-replacer-extend");
 module.exports = {
   publicPath: "./",
   lintOnSave: false,
@@ -13,20 +16,28 @@ module.exports = {
     //   }
     // }
   },
-  configureWebpack: (config) => {
-    process;
-  },
+
   pluginOptions: {
     "style-resources-loader": {
       preProcessor: "less",
       patterns: [path.resolve(__dirname, "./src/theme/theme.less")],
     },
   },
+  configureWebpack: (config) => {
+    config.plugins.push(
+      new ThemeColorReplacer({
+        fileName: "css/theme-colors-[contenthash:8].css",
+        matchColors: getThemeColors(),
+        injectCss: true,
+        resolveCss,
+      })
+    );
+  },
   css: {
     loaderOptions: {
       less: {
         lessOptions: {
-          // modifyVars: modifyVars(),
+          modifyVars: modifyVars(),
           javascriptEnabled: true,
         },
       },

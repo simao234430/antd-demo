@@ -6,7 +6,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-
+import themeUtil from "@/utils/themeUtil";
 export default {
   name: "App",
   components: {},
@@ -26,9 +26,24 @@ export default {
       this.setLanguage(val);
       // this.setHtmlTitle();
     },
+    "theme.color": function (val) {
+      let closeMessage = this.$message.loading(
+        `您选择了主题色 ${val}, 正在切换...`
+      );
+      themeUtil.changeThemeColor(val, this.theme.mode).then(closeMessage);
+    },
+    "theme.mode": function (val) {
+      let closeMessage = this.$message.loading(
+        `您选择了主题模式 ${val}, 正在切换...`
+      );
+      themeUtil.changeThemeColor(this.theme.color, val).then(closeMessage);
+    },
+    layout: function () {
+      window.dispatchEvent(new Event("resize"));
+    },
   },
   computed: {
-    ...mapState("setting", ["lang"]),
+    ...mapState("setting", ["layout", "theme", "weekMode", "lang"]),
   },
   methods: {
     // ...mapMutations("setting", ["setDevice"]),

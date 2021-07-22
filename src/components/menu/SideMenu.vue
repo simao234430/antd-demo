@@ -26,7 +26,8 @@
 import { mapState } from "vuex";
 import IMenu from "./menu";
 export default {
-  components: { IMenu },
+  name: 'SideMenu',
+  components: {IMenu},
   props: {
     collapsible: {
       type: Boolean,

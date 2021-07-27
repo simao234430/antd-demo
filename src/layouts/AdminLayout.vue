@@ -28,9 +28,17 @@
     <a-layout class="admin-layout-main beauty-scroll">
       <!-- <a-layout-header></a-layout-header> -->
       <admin-header
+        :class="[
+          {
+            'fixed-tabs': fixedTabs,
+            'fixed-header': fixedHeader,
+            'multi-page': multiPage,
+          },
+        ]"
+        :style="headerStyle"
+        :menuData="headMenuData"
         :collapsed="collapsed"
-        v-on:toggleCollapse="toggleCollapse"
-        :menuData="firstMenu"
+        @toggleCollapse="toggleCollapse"
       ></admin-header>
 
       <a-layout-content
@@ -81,17 +89,46 @@ export default {
       "multiPage",
     ]),
     ...mapGetters("setting", ["firstMenu", "subMenu", "menuData"]),
+    headMenuData() {
+      const { layout, menuData, firstMenu } = this;
+      return layout === "mix" ? firstMenu : menuData;
+    },
+    headerStyle() {
+      let width =
+        this.fixedHeader && this.layout !== "head" && !this.isMobile
+          ? `calc(100% - ${this.sideMenuWidth})`
+          : "100%";
+      let position = this.fixedHeader ? "fixed" : "static";
+      return `width: ${width}; position: ${position};`;
+    },
     // sideMenuData() {
     //   const { layout, menuData, subMenu } = this;
     //   //return layout === "mix" ? subMenu : menuData;
     //   return subMenu;
     // },
   },
-  watch: {},
+  watch: {
+    $route(val) {
+      this.setActivated(val);
+    },
+  },
   methods: {
     toggleCollapse() {
       console.log(" admin toggleCollapse");
       this.collapsed = !this.collapsed;
+    },
+    setActivated(route) {
+      if (this.layout === "mix") {
+        let matched = route.matched;
+        matched = matched.slice(0, matched.length - 1);
+        const { firstMenu } = this;
+        for (let menu of firstMenu) {
+          if (matched.findIndex((item) => item.path === menu.fullPath) !== -1) {
+            this.setActivatedFirst(menu.fullPath);
+            break;
+          }
+        }
+      }
     },
   },
   created() {},

@@ -2,7 +2,12 @@ import config from "@/config";
 import { formatFullPath } from "@/utils/i18n";
 import { getLocalSetting } from "@/utils/themeUtil";
 import { ADMIN } from "@/config/default";
-const localSetting = getLocalSetting();
+const localSetting = getLocalSetting(true);
+
+const customTitlesStr = sessionStorage.getItem(
+  process.env.VUE_APP_TBAS_TITLES_KEY
+);
+const customTitles = (customTitlesStr && JSON.parse(customTitlesStr)) || [];
 
 export default {
   namespaced: true,
@@ -11,7 +16,9 @@ export default {
     menuData: [],
     animates: ADMIN.animates,
     palettes: ADMIN.palettes,
+    activatedFirst: undefined,
     ...config,
+    customTitles,
     ...localSetting,
   },
   getters: {
@@ -47,6 +54,9 @@ export default {
     },
   },
   mutations: {
+    setFixedTabs(state, fixedTabs) {
+      state.fixedTabs = fixedTabs;
+    },
     setTheme(state, theme) {
       console.log(theme);
       state.theme = theme;
@@ -65,8 +75,14 @@ export default {
       console.log(weekMode);
       state.weekMode = weekMode;
     },
+    setMultiPage(state, multiPage) {
+      state.multiPage = multiPage;
+    },
     correctPageMinHeight(state, minHeight) {
       state.pageMinHeight += minHeight;
+    },
+    setActivatedFirst(state, activatedFirst) {
+      state.activatedFirst = activatedFirst;
     },
   },
 };

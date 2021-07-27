@@ -298,6 +298,7 @@ export default {
       });
     },
     saveSetting() {
+      console.log("saveSetting");
       const closeMessage = this.$message.loading(
         "正在保存到本地，请稍后...",
         0

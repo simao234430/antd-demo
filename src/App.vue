@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { getI18nKey } from "@/utils/routerUtil";
 import { mapState, mapMutations } from "vuex";
 import themeUtil from "@/utils/themeUtil";
 export default {
@@ -16,7 +17,7 @@ export default {
     };
   },
   created() {
-    // this.setHtmlTitle();
+    this.setHtmlTitle();
     console.log("created");
     this.setLanguage(this.lang);
     // enquireScreen((isMobile) => this.setDevice(isMobile));
@@ -24,7 +25,10 @@ export default {
   watch: {
     lang(val) {
       this.setLanguage(val);
-      // this.setHtmlTitle();
+      this.setHtmlTitle();
+    },
+    $route() {
+      this.setHtmlTitle();
     },
     "theme.color": function (val) {
       let closeMessage = this.$message.loading(
@@ -47,7 +51,14 @@ export default {
   },
   methods: {
     // ...mapMutations("setting", ["setDevice"]),
-
+    setHtmlTitle() {
+      const route = this.$route;
+      const key =
+        route.path === "/"
+          ? "home.name"
+          : getI18nKey(route.matched[route.matched.length - 1].path);
+      document.title = process.env.VUE_APP_NAME + " | " + this.$t(key);
+    },
     setLanguage(lang) {
       this.$i18n.locale = lang;
       switch (lang) {

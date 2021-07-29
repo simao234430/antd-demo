@@ -5,11 +5,11 @@
       <span class="name"></span>
     </div>
     <a-menu :class="['avatar-menu']" slot="overlay">
-      <a-menu-item>
+      <a-menu-item @click="handleToCenter">
         <a-icon type="user" />
         <span>个人中心</span>
       </a-menu-item>
-      <a-menu-item>
+      <a-menu-item @click="handleToSettings">
         <a-icon type="setting" />
         <span>设置</span>
       </a-menu-item>
@@ -32,6 +32,12 @@ export default {
     ...mapGetters("account", ["user"]),
   },
   methods: {
+    handleToCenter() {
+      this.$router.push({ path: "/account/center" });
+    },
+    handleToSettings() {
+      this.$router.push({ path: "/account/settings" });
+    },
     logout() {
       logout();
       this.$router.push("/login");

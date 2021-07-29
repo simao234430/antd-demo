@@ -77,19 +77,24 @@ export default {
       this.loadCacheConfig(val);
     },
     $route: function (newRoute) {
-      this.activePage = newRoute.path;
-      const page = this.pageList.find((item) => item.path === newRoute.path);
-      if (!this.multiPage) {
-        this.pageList = [this.createPage(newRoute)];
-      } else if (page) {
-        page.fullPath = newRoute.fullPath;
-      } else if (!page) {
-        this.pageList.push(this.createPage(newRoute));
-      }
-      if (this.multiPage) {
-        this.$nextTick(() => {
-          this.setCachedKey(newRoute);
-        });
+      if (newRoute.meta.invisible == true) {
+        console.log("newRoute.meta.invisible == true");
+      } else {
+        console.log("newRoute");
+        this.activePage = newRoute.path;
+        const page = this.pageList.find((item) => item.path === newRoute.path);
+        if (!this.multiPage) {
+          this.pageList = [this.createPage(newRoute)];
+        } else if (page) {
+          page.fullPath = newRoute.fullPath;
+        } else if (!page) {
+          this.pageList.push(this.createPage(newRoute));
+        }
+        if (this.multiPage) {
+          this.$nextTick(() => {
+            this.setCachedKey(newRoute);
+          });
+        }
       }
     },
     multiPage: function (newVal) {

@@ -12,8 +12,13 @@ import bootstrap from "@/bootstrap";
 import { initI18n } from "@/utils/i18n";
 import Plugins from "@/plugins";
 const router = initRouter(store.state.setting.asyncRoutes);
-const i18n = initI18n("CN", "US");
+// const i18n = initI18n("CN", "US");
+import i18n from './locales'
+import { VueAxios } from "./utils/axios-request";
 Vue.config.productionTip = false;
+import "./utils/filter"; // global filter
+// mount axios to `Vue.$http` and `this.$http`
+Vue.use(VueAxios);
 Vue.use(Antd);
 Vue.use(Viser);
 Vue.use(Plugins);

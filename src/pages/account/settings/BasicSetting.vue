@@ -58,7 +58,7 @@ export default {
       // cropper
       preview: {},
       option: {
-        img: "/avatar2.jpg",
+        img: "https://gw.alipayobjects.com/zos/rmsportal/WhxKECPNujWoWEFNdnJE.png",
         info: true,
         size: 1,
         outputType: "jpeg",

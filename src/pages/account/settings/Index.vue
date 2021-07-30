@@ -12,7 +12,6 @@
             :style="{ border: '0', width: isMobile ? '560px' : 'auto' }"
             :selectedKeys="selectedKeys"
             type="inner"
-            defaultSelectedKeys="/account/settings/basic"
             @openChange="onOpenChange"
           >
             <a-menu-item key="/account/settings/basic">

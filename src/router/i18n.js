@@ -3,7 +3,7 @@ module.exports = {
     CN: {
       home: { name: "首页" },
       dashboard: {
-        name: "Dashboard1",
+        name: "仪表盘",
         workplace: { name: "工作台" },
         analysis: { name: "分析页" },
       },

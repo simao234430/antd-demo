@@ -5,9 +5,9 @@
         <a-card :bordered="false">
           <div class="account-center-avatarHolder">
             <div class="avatar">
-              <img :src="avatar" />
+              <img :src="user.avatar" />
             </div>
-            <div class="username">{{ nickname }}</div>
+            <div class="username">{{ user.name }}</div>
             <div class="bio">海纳百川，有容乃大</div>
           </div>
           <div class="account-center-detail">
@@ -134,7 +134,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["nickname", "avatar"]),
+    // ...mapGetters(["nickname", "avatar"]),
+    ...mapGetters("account", ["user"]),
   },
   watch: {},
   methods: {
